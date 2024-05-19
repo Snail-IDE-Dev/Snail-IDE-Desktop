@@ -36,7 +36,7 @@ jobs:
         run: |
           cd nobuildapp
           pnpm i --shamefully-hoist --force
-          NODE_ENV=production pnpm run build
+          NODE_ENV=production webpack --bail
           cd ..
         env:
           NODE_OPTIONS: --openssl-legacy-provider
