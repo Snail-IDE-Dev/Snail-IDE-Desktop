@@ -36,6 +36,7 @@ jobs:
         run: |
           cd nobuildapp
           pnpm i --shamefully-hoist --force
+          pnpm i lodash.defaultsdeep
           webpack --bail
           cd ..
         env:
