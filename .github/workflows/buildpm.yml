@@ -49,6 +49,6 @@ jobs:
       - name: build electron app
         run: |
           pnpm i
-          pnpm run publish
+          pnpm run publish "always"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
