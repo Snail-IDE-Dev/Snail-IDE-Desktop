@@ -1,0 +1,46 @@
+name: Build penguinmod for desktop
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - "*"
+
+jobs:
+  build-and-deploy:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+
+    steps:
+      - name: checkout the repo
+        uses: actions/checkout@v3
+
+      - name: clone pm
+        run: git clone https://github.com/penguinmod/penguinmod.github.io nobuildapp
+
+      - name: get pnpm
+        run: npm install -g pnpm
+
+      - name: build pm
+        run: |
+          cd nobuildapp
+          pnpm i --shamefully-hoist --force
+          NODE_ENV=production pnpm run build
+          cd ..
+        env:
+          NODE_OPTIONS: --openssl-legacy-provider
+
+      - name: copy build to /app
+        run: |
+          cp -r nobuildapp/build/* app/
+
+      - name: build electron app
+        run: |
+          pnpm i
+          pnpm run publish
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

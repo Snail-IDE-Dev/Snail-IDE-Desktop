@@ -5,7 +5,8 @@
   "main": "main/index.js",
   "type": "module",
   "scripts": {
-    "test": "electron ."
+    "test": "electron .",
+    "publish": "electron-builder --publish"
   },
   "repository": {
     "type": "git",
@@ -19,5 +20,39 @@
   "homepage": "https://github.com/dumorando/penguinmod-desktop#readme",
   "dependencies": {
     "electron": "^30.0.6"
+  },
+  "private": true,
+  "build": {
+    "appId": "com.dumorando.pmdesktop",
+    "publish": [
+      "github"
+    ],
+    "linux": {
+      "icon": "assets/512.png",
+      "category": "Development",
+      "maintainer": "dumorando & The PenguinMod developers",
+      "target": [
+        "AppImage",
+        "deb",
+        "rpm",
+        "tar.gz"
+      ]
+    },
+    "win": {
+      "icon": "assets/512.ico",
+      "target": [
+        "portable"
+      ]
+    },
+    "mac": {
+      "icon": "assets/512.icns",
+      "target": [
+        "dmg",
+        "zip"
+      ]
+    }
+  },
+  "devDependencies": {
+    "electron-builder": "^24.13.3"
   }
 }
