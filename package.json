@@ -1,0 +1,23 @@
+{
+  "name": "penguinmod-desktop",
+  "version": "1.0.0",
+  "description": "Desktop Builds of PenguinMod made with Github actions and electron.",
+  "main": "main/index.js",
+  "type": "module",
+  "scripts": {
+    "test": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dumorando/penguinmod-desktop.git"
+  },
+  "author": "dumorando",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/dumorando/penguinmod-desktop/issues"
+  },
+  "homepage": "https://github.com/dumorando/penguinmod-desktop#readme",
+  "dependencies": {
+    "electron": "^30.0.6"
+  }
+}
