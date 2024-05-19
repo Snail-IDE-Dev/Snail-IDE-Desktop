@@ -36,7 +36,7 @@ jobs:
         run: |
           cd nobuildapp
           pnpm i --shamefully-hoist --force
-          webpack --bail
+          npx webpack --bail
           cd ..
         env:
           NODE_OPTIONS: --openssl-legacy-provider
