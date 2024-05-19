@@ -43,13 +43,6 @@
       "target": [
         "portable"
       ]
-    },
-    "mac": {
-      "icon": "assets/512.icns",
-      "target": [
-        "dmg",
-        "zip"
-      ]
     }
   },
   "devDependencies": {
