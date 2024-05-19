@@ -43,6 +43,7 @@ jobs:
 
       - name: copy build to /app
         run: |
+          mkdir app
           cp -r nobuildapp/build/* app/
 
       - name: build electron app
