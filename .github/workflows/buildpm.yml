@@ -20,10 +20,17 @@ jobs:
         uses: actions/checkout@v3
 
       - name: clone pm
-        run: git clone https://github.com/penguinmod/penguinmod.github.io nobuildapp
+        run: |
+          git config --global core.compression 0
+          git clone --depth 1 https://github.com/penguinmod/penguinmod.github.io nobuildapp
+          cd nobuildapp
+          git fetch --unshallow
+          git pull --all
+          cd ..
+
 
       - name: get pnpm
-        run: npm install -g pnpm
+        run: npm install -g pnpm@v6
 
       - name: build pm
         run: |
