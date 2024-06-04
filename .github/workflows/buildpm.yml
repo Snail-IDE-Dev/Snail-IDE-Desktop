@@ -1,4 +1,4 @@
-name: Build penguinmod for desktop
+name: Build Snail IDE for desktop
 
 on:
   push:
@@ -20,10 +20,10 @@ jobs:
       - name: checkout the repo
         uses: actions/checkout@v3
 
-      - name: clone pm
+      - name: clone sn
         run: |
           git config --global core.compression 0
-          git clone --depth 1 https://github.com/penguinmod/penguinmod.github.io nobuildapp
+          git clone --depth 1 https://github.com/Snail-IDE/snail-ide.github.io nobuildapp
           cd nobuildapp
           git fetch --unshallow
           git pull --all
@@ -33,7 +33,7 @@ jobs:
       - name: get pnpm
         run: npm install -g pnpm@v6
 
-      - name: build pm
+      - name: build sn
         run: |
           cd nobuildapp
           pnpm i --shamefully-hoist --force
